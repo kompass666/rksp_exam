@@ -23,10 +23,9 @@ public class EventService {
     public long countAndSave() {
         long count = repository.count();
 
-        try (Connection conn = DriverManager.getConnection(clickhouseUrl);
+        try (Connection conn = DriverManager.getConnection(clickhouseUrl, "default", "");
              PreparedStatement ps =
                      conn.prepareStatement("INSERT INTO app.event_counts (cnt) VALUES (?)")) {
-
             ps.setLong(1, count);
             ps.executeUpdate();
 

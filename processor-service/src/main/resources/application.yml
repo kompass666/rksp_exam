@@ -21,4 +21,4 @@ spring:
 app:
   queue: events.raw
   clickhouse:
-    url: jdbc:clickhouse://localhost:8123/app
+    url: jdbc:clickhouse://localhost:8123?compress=0
